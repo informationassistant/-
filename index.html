@@ -2,31 +2,42 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>ИнфоПомощник: 5-11 класс</title>
+    <title>Справочник Терминов</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme"> <!-- По умолчанию темная -->
+    
+    <button id="theme-toggle" class="theme-btn">🌓</button>
+
     <div class="container">
-        <header>
-            <h1>💻 ИнфоПомощник</h1>
-            <p>База знаний по информатике (5-11 класс)</p>
-        </header>
-
-        <main>
-            <div class="chat-container" id="chatContainer">
-                <div class="message bot">Привет! Я помогу тебе с теорией. Спроси меня о чем угодно (например: "Что такое бит?", "Алгоритм", "Массив" или "Системы счисления").</div>
-            </div>
-
-            <div class="input-area">
-                <input type="text" id="userInput" placeholder="Напишите ваш вопрос здесь...">
-                <button onclick="askQuestion()">Спросить</button>
-            </div>
-        </main>
-
-        <nav class="quick-links">
-            
-        </nav>
+       <div class="grade-selector">
+    <div class="grade-row">
+        <button class="grade-btn" onclick="filterByClass(5)">5 Класс</button>
+        <button class="grade-btn" onclick="filterByClass(6)">6 Класс</button>
+        <button class="grade-btn" onclick="filterByClass(7)">7 Класс</button>
+        <button class="grade-btn" onclick="filterByClass(8)">8 Класс</button>
     </div>
+    <div class="grade-row">
+        <button class="grade-btn" onclick="filterByClass(9)">9 Класс</button>
+        <button class="grade-btn" onclick="filterByClass(10)">10 Класс</button>
+        <button class="grade-btn" onclick="filterByClass(11)">11 Класс</button>
+    </div>
+</div>
+        <!-- Сетка карточек на весь экран -->
+        <div id="terms-grid" class="terms-grid">
+            <!-- Сюда JS вставит карточки -->
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <button class="close-btn" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
