@@ -187,16 +187,26 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Адаптив для мобильных устройств */
-@media (max-width: 600px) {
-    .grade-card {
-        font-size: 3rem;
+@media (max-width: 768px) {
+    body, html {
+        overflow: auto; /* Разрешаем прокрутку, если карточек много */
     }
+
     .container {
-        gap: 10px;
-        padding: 10px;
+        height: auto;   /* На мобильных высота зависит от контента */
+        min-height: 100vh;
+        flex-direction: column; 
     }
+
     .grade-row {
-        gap: 10px;
+        flex-direction: column; /* Карточки встают друг под другом */
+        flex: none;             /* Отключаем растягивание по высоте */
+        width: 100%;
+    }
+
+    .grade-card {
+        min-height: 80px;      /* Задаем комфортную высоту для нажатия пальцем */
+        width: 100% !important; /* Карточки занимают всю ширину */
+        font-size: 1.5rem;     /* Увеличиваем шрифт для удобства */
     }
 }
